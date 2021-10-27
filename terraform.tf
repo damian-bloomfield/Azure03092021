@@ -5,21 +5,13 @@ terraform {
       version = "=2.46.0"
     }
   }
-
-  backend "azurerm" {
-    resource_group_name  = "Workshop"
-    storage_account_name = "030902021"
-    container_name       = "terraformstatecontainer"
-    key                  = "workshop.tfstate"
-  }
-
 }
 provider "azurerm" {
   features {}
 }
 
 data "azurerm_resource_group" "Workshop" {
-  name = "Workshop"
+  name = "Terraform"
 }
 
 resource "azurerm_virtual_network" "Workshop" {
@@ -43,7 +35,7 @@ resource "azurerm_subnet" "B" {
   address_prefixes     = ["10.0.2.0/24"]
 
   depends_on = [azurerm_virtual_network.Workshop]
-  
+
 }
 
 
