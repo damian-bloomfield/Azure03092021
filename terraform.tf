@@ -43,6 +43,7 @@ resource "azurerm_subnet" "B" {
   address_prefixes     = ["10.0.2.0/24"]
 
   depends_on = [azurerm_virtual_network.Workshop]
+  
 }
 
 
